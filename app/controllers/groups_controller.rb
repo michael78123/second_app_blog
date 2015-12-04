@@ -7,6 +7,7 @@ class GroupsController < ApplicationController
   end
   def show
     @group = Group.find(params[:id])
+    @posts = @group.posts
   end
 
   def new
@@ -18,6 +19,7 @@ class GroupsController < ApplicationController
   end
 
   def create
+    # 資料庫裡面的Group
     @group = Group.create(group_params)
 
     if @group.save
